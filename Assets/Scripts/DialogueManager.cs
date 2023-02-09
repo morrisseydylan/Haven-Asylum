@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,16 +12,18 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text TextBox;
     public TextAsset TextFile;
 
-    private Queue<string> inputStream = new(); // stores dialogue
-    private bool isTyping = false;
-    private bool cancelTyping = false;
+    Queue<string> dialogue = new();
+    bool isPrinting = false;
+    bool instantPrint = false;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        StartDialogue();
+        StartDialogue(TextFile);
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (DialogueUI.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
@@ -28,81 +31,54 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(TextAsset textFile)
     {
-        string txt = TextFile.text;
-
-        string[] lines = txt.Split(System.Environment.NewLine.ToCharArray()); // Split dialogue lines by newline
-
-        foreach (string line in lines) // for every line of dialogue
+        string[] lines = textFile.text.Split(Environment.NewLine.ToCharArray()); // Split text file by newlines
+        foreach (string line in lines)
         {
-            inputStream.Enqueue(line); // adds to the dialogue to be printed
+            if (!line.Any())
+            {
+                continue; // Skip empty lines
+            }
+            dialogue.Enqueue(line); // Add the line of dialogue to the queue
         }
-
-        inputStream.Enqueue("EndQueue");
 
         DialogueUI.SetActive(true);
-
-        PrintDialogue(); // Prints out the first line of dialogue
+        PrintDialogue();
     }
 
-    private void PrintDialogue()
+    void PrintDialogue()
     {
-        if (inputStream.Peek().Contains("EndQueue")) // special phrase to stop dialogue
+        if (isPrinting) // If user gives input to print next line but current line is still printing...
         {
-            // Clear Queue
-            if (!isTyping)
-            {
-                inputStream.Dequeue();
-                EndDialogue();
-            }
-            else
-            {
-                cancelTyping = true;
-            }
+            instantPrint = true; // ...instantly print the rest of the current line
         }
-        else
+        else if (dialogue.Any()) // If dialogue queue is not empty, start printing
         {
-            if (!isTyping)
-            {
-                string textString = inputStream.Dequeue();
-                StartCoroutine(TextScroll(textString));
-            }
-            else if (isTyping && !cancelTyping)
-            {
-                cancelTyping = true;
-            }
+            StartCoroutine(TextScroll(dialogue.Dequeue()));
         }
-
-
+        else // If empty, end dialogue
+        {
+            DialogueUI.SetActive(false);
+            TextBox.text = "";
+        }
     }
 
-    private IEnumerator TextScroll(string lineOfText)
+    IEnumerator TextScroll(string line) // Coroutine for printing each character individually
     {
-        int letter = 0;
         TextBox.text = "";
-        isTyping = true;
-        cancelTyping = false;
-        while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
+        isPrinting = true;
+
+        int charIndex = 0;
+        while (!instantPrint && (charIndex < line.Length - 1))
         {
-            TextBox.text += lineOfText[letter];
-            letter++;
+            TextBox.text += line[charIndex];
+            charIndex++;
             yield return new WaitForSeconds(0.01f);
         }
 
-        TextBox.text = lineOfText;
-        isTyping = false;
-        cancelTyping = false;
-    }
-
-    public void EndDialogue()
-    {
-        TextBox.text = "";
-        inputStream.Clear();
-        DialogueUI.SetActive(false);
-
-        cancelTyping = false;
-        isTyping = false;
-        inputStream.Clear();
+        TextBox.text = line;
+        isPrinting = false;
+        instantPrint = false;
     }
 }
