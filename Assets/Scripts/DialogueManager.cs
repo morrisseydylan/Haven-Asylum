@@ -9,8 +9,22 @@ using System.Linq;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject DialogueUI;
-    public TMP_Text TextBox;
-    public TextAsset TextFile;
+    [Header("Empty GameObject containing all dialogue & choice UI goes here.\n" +
+        "Children must be named:\n" +
+        "Dialogue Text\n" +
+        "Choice (1)\n" +
+        " > Choice (1) Text\n" +
+        "etc.")]
+
+    public TextAsset TextFile; // Prototype only; TextAssets should be argued in the StartDialogue method, called elsewhere
+
+    private TMP_Text dialogueText;
+
+    private GameObject choice1UI;
+    private TMP_Text choice1Text;
+
+    private GameObject choice2UI;
+    private TMP_Text choice2Text;
 
     Queue<string> dialogue = new();
     bool isPrinting = false;
@@ -19,7 +33,12 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartDialogue(TextFile);
+        choice1UI = DialogueUI.transform.Find("Choice (1)").gameObject;
+        choice2UI = DialogueUI.transform.Find("Choice (2)").gameObject;
+        choice1Text = choice1UI.transform.Find("Choice (1) Text").GetComponent<TMP_Text>();
+        choice2Text = choice2UI.transform.Find("Choice (2) Text").GetComponent<TMP_Text>();
+        dialogueText = DialogueUI.transform.Find("Dialogue Text").GetComponent<TMP_Text>();
+        StartDialogue(TextFile); // Prototype only
     }
 
     // Update is called once per frame
@@ -27,20 +46,24 @@ public class DialogueManager : MonoBehaviour
     {
         if (DialogueUI.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
-            PrintDialogue();
+            if (isPrinting) // If the current line is still printing, instantly print the rest of the current line
+            {
+                instantPrint = true;
+            }
+            else
+            {
+                PrintDialogue();
+            }
         }
     }
 
     public void StartDialogue(TextAsset textFile)
     {
-        string[] lines = textFile.text.Split(Environment.NewLine.ToCharArray()); // Split text file by newlines
+        string delimiter = String.Concat(Environment.NewLine, Environment.NewLine); // Text file will be split by double newlines
+        string[] lines = textFile.text.Split(delimiter, StringSplitOptions.RemoveEmptyEntries); // Split text file and remove empties
         foreach (string line in lines)
         {
-            if (!line.Any())
-            {
-                continue; // Skip empty lines
-            }
-            dialogue.Enqueue(line); // Add the line of dialogue to the queue
+            dialogue.Enqueue(line); // Add each line of dialogue to the queue
         }
 
         DialogueUI.SetActive(true);
@@ -49,35 +72,45 @@ public class DialogueManager : MonoBehaviour
 
     void PrintDialogue()
     {
-        if (isPrinting) // If user gives input to print next line but current line is still printing...
+        if (dialogue.Any()) // If dialogue queue is not empty, start printing
         {
-            instantPrint = true; // ...instantly print the rest of the current line
-        }
-        else if (dialogue.Any()) // If dialogue queue is not empty, start printing
-        {
-            StartCoroutine(TextScroll(dialogue.Dequeue()));
+            //StartCoroutine(TextScroll(dialogue.Dequeue()));
+            string line = dialogue.Dequeue();
+            if (line.Contains("[CHOICE#"))
+            {
+                string[] lines = line.Split(Environment.NewLine);
+                StartCoroutine(TextScroll(lines[0]));
+                choice1UI.SetActive(true);
+                choice2UI.SetActive(true);
+                choice1Text.text = lines[1].Substring(lines[1].IndexOf("]") + 1);
+                choice2Text.text = lines[2].Substring(lines[2].IndexOf("]") + 1);
+            }
+            else
+            {
+                StartCoroutine(TextScroll(line));
+            }
         }
         else // If empty, end dialogue
         {
             DialogueUI.SetActive(false);
-            TextBox.text = "";
+            dialogueText.text = "";
         }
     }
 
     IEnumerator TextScroll(string line) // Coroutine for printing each character individually
     {
-        TextBox.text = "";
+        dialogueText.text = "";
         isPrinting = true;
 
         int charIndex = 0;
         while (!instantPrint && (charIndex < line.Length - 1))
         {
-            TextBox.text += line[charIndex];
+            dialogueText.text += line[charIndex];
             charIndex++;
             yield return new WaitForSeconds(0.01f);
         }
 
-        TextBox.text = line;
+        dialogueText.text = line;
         isPrinting = false;
         instantPrint = false;
     }
