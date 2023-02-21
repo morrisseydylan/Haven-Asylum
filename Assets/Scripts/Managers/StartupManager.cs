@@ -7,20 +7,20 @@ public class StartupManager : MonoBehaviour
 {
     public GameObject UICanvas;
 
-    bool fadingOut = false;
+    bool begin = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(FadeTitle());
+        //StartCoroutine(FadeTitle());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && !fadingOut)
+        if (Input.anyKeyDown && !begin)
         {
-            fadingOut = true;
+            begin = true;
             FindObjectOfType<FadeCamera>().FadeOut(1);
         }
     }

@@ -1,0 +1,15 @@
+Keith: Whatever. Besides, I know something really fun we could do later.
+
+Rebecca: Wait, you're not actually thinking about going to that asylum, are you?
+
+Keith: You know it's getting demolished soon. It'll be our last chance to explore it!
+
+Andrea: What are you guys talking about?
+
+Keith: I heard there's this old building on the outskirts of town that's getting demolished this week. I thought it'd be cool to see what it's like to explore it!
+
+Andrea: Nope. No way.
+
+Rebecca: I am a little curious... Aren't you?
+[CHOICE]It sounds dangerous.
+[CHOICE]It's just an old building.

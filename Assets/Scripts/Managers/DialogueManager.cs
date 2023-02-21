@@ -10,32 +10,23 @@ using Cinemachine;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextAsset TextFile; // Debugging only--TextAssets should be argued in the StartDialogue method, called elsewhere
     public GameObject DialogueUI;
-    public CinemachineVirtualCamera PlayerCamera;
+    public CinemachineVirtualCamera DialogueCamera;
+    public GameObject Party; // indices 0-3 respectively: Keith, Rebecca, Andrea, Nick
+    public CutsceneManager Manager;
 
     TMP_Text[] textBoxes; // index 0 = NPC dialogue text box; indices 1-3 = choice text boxes
-    CinemachinePOV pov;
 
     Queue<string> dialogueQueue = new();
     bool isChoice = false;
     bool isPrinting = false;
     bool instantPrint = false;
+    int choice;
 
     // Start is called before the first frame update
     void Start()
     {
         textBoxes = DialogueUI.GetComponentsInChildren<TMP_Text>();
-        pov = (CinemachinePOV)PlayerCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim);
-    }
-
-    // Debugging only
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            StartDialogue(TextFile);
-        }
     }
 
     public void OnDialogueClick(int choice) // 0 = NPC dialogue box clicked; 1-3 = choice box clicked
@@ -53,7 +44,7 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            // TODO: send choice value somewhere to be stored
+            this.choice = choice;
             isChoice = false;
         }
 
@@ -83,8 +74,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueUI.SetActive(true);
-        pov.m_HorizontalAxis.m_MaxSpeed = 0;
-        pov.m_VerticalAxis.m_MaxSpeed = 0;
+        //
         PrintDialogue();
     }
 
@@ -93,13 +83,46 @@ public class DialogueManager : MonoBehaviour
         if (dialogueQueue.Any()) // If dialogue queue is not empty, start printing
         {
             string[] lines = dialogueQueue.Dequeue().Split(Environment.NewLine);
+            if (lines[0].Contains(":"))
+            {
+                string speaker = lines[0].Substring(0, lines[0].IndexOf(":"));
+                int partyMember;
+                switch (speaker)
+                {
+                    case "Keith":
+                        {
+                            partyMember = 0;
+                            break;
+                        }
+                    case "Rebecca":
+                        {
+                            partyMember = 1;
+                            break;
+                        }
+                    case "Andrea":
+                        {
+                            partyMember = 2;
+                            break;
+                        }
+                    case "Nick":
+                        {
+                            partyMember = 3;
+                            break;
+                        }
+                    default:
+                        {
+                            partyMember = 4;
+                            break;
+                        }
+                }
+                DialogueCamera.LookAt = Party.transform.GetChild(partyMember).transform;
+            }
             StartCoroutine(PrintCharacters(lines));
         }
         else // If empty, end dialogue
         {
             DialogueUI.SetActive(false);
-            pov.m_HorizontalAxis.m_MaxSpeed = 300; // Debugging only--should be configurable by the player
-            pov.m_VerticalAxis.m_MaxSpeed = 300;
+            Manager.DialogueFinish(choice);
         }
     }
 

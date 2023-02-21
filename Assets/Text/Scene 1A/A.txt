@@ -1,0 +1,19 @@
+Andrea: WHAT??? I FAILED MY CALCULUS EXAM!?
+
+Andrea: ...
+
+Andrea: ...I studied so hard for it...
+
+Keith: Nah, I had Dr. Pucket last year. His exams were always whack. He was always going off on tangents during lectures...
+
+Rebecca: Yeah, don't beat yourself up over it. Besides, it's spring break now! We don't have to think about any of that stuff for a while.
+
+Andrea: I suppose you're right.
+
+Keith: Nick, are you really still studying!? What do you even need to prepare for?
+
+Nick: Oh, uh... you know... I just don't want to get behind on anything.
+
+Rebecca: Oh, come on! %PLAYER%, you're also doing engineering, right? Do you really need to study over spring break?
+[CHOICE]It is a bit much.
+[CHOICE]Nick can do what he thinks is best!
