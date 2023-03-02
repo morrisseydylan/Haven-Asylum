@@ -18,7 +18,8 @@ public class DialogueManager : MonoBehaviour
     TMP_Text[] textBoxes; // index 0 = NPC dialogue text box; indices 1-3 = choice text boxes
 
     Queue<string> dialogueQueue = new();
-    bool isChoice = false;
+    bool choicePrompt = false;
+    bool multipleResponses = false;
     bool isPrinting = false;
     bool instantPrint = false;
     int choice;
@@ -37,7 +38,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (isChoice)
+        if (choicePrompt)
         {
             if (choice == 0) // Don't proceed to next dialogue if the player is prompted with a choice but doesn't select one
             {
@@ -45,7 +46,7 @@ public class DialogueManager : MonoBehaviour
             }
 
             this.choice = choice;
-            isChoice = false;
+            choicePrompt = false;
         }
 
         PrintDialogue();
@@ -53,19 +54,6 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(TextAsset textFile)
     {
-        // Example text file format:
-
-        /* Hello! This is the first line of dialogue to be displayed.
-         * 
-         * This text will appear second, after a click.
-         * 
-         * This text will appear third. Some choices will also appear.
-         * [CHOICE]This is the bottom choice.
-         * [CHOICE]This is the middle choice.
-         * [CHOICE]This is the top choice.
-         * 
-         * Finally, this text will appear last.*/
-
         string delimiter = String.Concat(Environment.NewLine, Environment.NewLine); // Text file will be split by double newlines
         string[] lines = textFile.text.Split(delimiter, StringSplitOptions.RemoveEmptyEntries); // Split text file and remove empties
         foreach (string lineGroup in lines)
@@ -74,7 +62,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueUI.SetActive(true);
-        //
         PrintDialogue();
     }
 
@@ -83,6 +70,36 @@ public class DialogueManager : MonoBehaviour
         if (dialogueQueue.Any()) // If dialogue queue is not empty, start printing
         {
             string[] lines = dialogueQueue.Dequeue().Split(Environment.NewLine);
+
+            if (lines.Length == 1)
+            {
+                string line = lines[0];
+                if (line.Contains("[1]"))
+                {
+                    if (choice == 1)
+                    {
+
+                    }
+                }
+                else if (line.Contains("[2]"))
+                {
+                    if (choice == 2)
+                    {
+
+                    }
+                }
+                else if (line.Contains("[3]"))
+                {
+                    if (choice == 3)
+                    {
+
+                    }
+                }
+                else if (line.Contains("[RESUME]"))
+                {
+                    PrintDialogue();
+                }
+            }
             if (lines[0].Contains(":"))
             {
                 string speaker = lines[0].Substring(0, lines[0].IndexOf(":"));
@@ -117,6 +134,28 @@ public class DialogueManager : MonoBehaviour
                 }
                 DialogueCamera.LookAt = Party.transform.GetChild(partyMember).transform;
             }
+
+            // Don't show any choices on the screen by default
+            for (int i = 1; i < DialogueUI.transform.childCount; i++)
+            {
+                DialogueUI.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            // Determine what type of dialogue is being read (choice prompt, different dialogues, or neither)
+            if (lines.Length == 1)
+            {
+                choicePrompt = false;
+                if (lines[0].Contains("["))
+                {
+                    multipleResponses = true;
+                }
+            }
+            else
+            {
+                choicePrompt = true;
+            }
+
+            // Print the line of dialogue
             StartCoroutine(PrintCharacters(lines));
         }
         else // If empty, end dialogue
@@ -126,19 +165,22 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Takes in an array of one or more strings. The first string will always be the NPC dialogue;
-    // any additional strings will be player choices, if applicable
+    // Print the string one character at a time
     IEnumerator PrintCharacters(string[] lines)
     {
-        string npcDialogue = lines[0];
+        string npcDialogue;
         TMP_Text npcTextBox = textBoxes[0];
         npcTextBox.text = "";
         isPrinting = true;
 
-        // Don't show any choices on the screen by default
-        for (int i = 1; i < DialogueUI.transform.childCount; i++)
+        // Choose which line will be printed
+        if (multipleResponses)
         {
-            DialogueUI.transform.GetChild(i).gameObject.SetActive(false);
+            npcDialogue = lines[choice - 1][3..];
+        }
+        else
+        {
+            npcDialogue = lines[0];
         }
 
         // Print characters to text box individually
@@ -154,15 +196,9 @@ public class DialogueManager : MonoBehaviour
         isPrinting = false;
         instantPrint = false;
 
-        if (lines.Length == 1)
+        // After printing, activate choice boxes if applicable
+        if (choicePrompt)
         {
-            isChoice = false;
-        }
-        else
-        {
-            isChoice = true;
-
-            // Activate choice boxes
             for (int i = 1; i < lines.Length; i++)
             {
                 DialogueUI.transform.GetChild(i).gameObject.SetActive(true);

@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -47,11 +47,11 @@ public class PlayerInteraction : MonoBehaviour
         
         if (move)
         {
-            transform.position = Vector3.MoveTowards(transform.position, interaction.transform.position, 0.005f);
             if ((interaction.transform.position - transform.position).magnitude < 3.0f)
             {
                 move = false;
             }
+            transform.position = Vector3.MoveTowards(transform.position, interaction.transform.position, 0.05f);
         }
     }
 
