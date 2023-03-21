@@ -1,28 +1,28 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    CinemachinePOV pov;
     GameObject interaction;
-    bool move = false;
+    bool movingToObject = false;
 
-    void Start()
+    void Awake()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        pov = (CinemachinePOV)GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent(CinemachineCore.Stage.Aim);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 cursor = new(Screen.width / 2, Screen.height / 2, 0); // Debugging only--should be Input.mousePosition along with Cursor.lockState being changed elsewhere
-        Ray ray = Camera.main.ScreenPointToRay(cursor);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100))
         {
-            if (hit.collider.gameObject.tag == "Interactable")
+            if (hit.collider.gameObject.TryGetComponent(out InteractableObject properties))
             {
+
                 GameObject hitObj = hit.collider.gameObject;
                 if (hitObj != interaction)
                 {
@@ -32,7 +32,11 @@ public class PlayerInteraction : MonoBehaviour
                 SetOutline(true);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    move = true;
+                    if (properties.CanMoveTo)
+                    {
+                        movingToObject = true;
+                    }
+                    properties.StartDialogue();
                 }
             }
             else
@@ -44,23 +48,37 @@ public class PlayerInteraction : MonoBehaviour
         {
             SetOutline(false);
         }
-        
-        if (move)
+
+        if (movingToObject)
         {
             if ((interaction.transform.position - transform.position).magnitude < 3.0f)
             {
-                move = false;
+                movingToObject = false;
             }
             transform.position = Vector3.MoveTowards(transform.position, interaction.transform.position, 0.05f);
         }
+    }
+
+    void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        pov.m_HorizontalAxis.m_MaxSpeed = 300;
+        pov.m_VerticalAxis.m_MaxSpeed = 300;
+    }
+
+    void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        pov.m_HorizontalAxis.m_MaxSpeed = 0;
+        pov.m_VerticalAxis.m_MaxSpeed = 0;
+        SetOutline(false);
     }
 
     void SetOutline(bool value)
     {
         if (interaction != null)
         {
-            Outline outline;
-            if ((outline = interaction.GetComponent<Outline>()) != null)
+            if (interaction.TryGetComponent(out Outline outline))
             {
                 outline.enabled = value;
             }

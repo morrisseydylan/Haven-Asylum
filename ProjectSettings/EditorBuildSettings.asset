@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Diner.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Courtyard.unity
+    guid: 05e9ae25cf23c9d44beb23babe5c615b
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 1237d3dc717d2fc43965aec5ce91998b
   m_configObjects: {}

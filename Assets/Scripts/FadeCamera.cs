@@ -14,7 +14,7 @@ public class FadeCamera : MonoBehaviour
     bool done;
     float alpha;
     float time;
-    int sceneToLoad;
+    string sceneToLoad;
 
     [RuntimeInitializeOnLoadMethod]
     public void FadeIn()
@@ -25,7 +25,7 @@ public class FadeCamera : MonoBehaviour
         time = 0;
     }
 
-    public void FadeOut(int sceneToLoad)
+    public void FadeOut(string sceneToLoad)
     {
         reverse = true;
         done = false;

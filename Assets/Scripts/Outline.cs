@@ -14,7 +14,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 
 public class Outline : MonoBehaviour {
-  private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
+  private static readonly HashSet<Mesh> registeredMeshes = new();
 
   public enum Mode {
     OutlineAll,
@@ -69,10 +69,10 @@ public class Outline : MonoBehaviour {
   private bool precomputeOutline;
 
   [SerializeField, HideInInspector]
-  private List<Mesh> bakeKeys = new List<Mesh>();
+  private List<Mesh> bakeKeys = new();
 
   [SerializeField, HideInInspector]
-  private List<ListVector3> bakeValues = new List<ListVector3>();
+  private List<ListVector3> bakeValues = new();
 
   private Renderer[] renderers;
   private Material outlineMaskMaterial;
@@ -195,9 +195,7 @@ public class Outline : MonoBehaviour {
       meshFilter.sharedMesh.SetUVs(3, smoothNormals);
 
       // Combine submeshes
-      var renderer = meshFilter.GetComponent<Renderer>();
-
-      if (renderer != null) {
+      if (meshFilter.TryGetComponent<Renderer>(out var renderer)) {
         CombineSubmeshes(meshFilter.sharedMesh, renderer.sharedMaterials);
       }
     }

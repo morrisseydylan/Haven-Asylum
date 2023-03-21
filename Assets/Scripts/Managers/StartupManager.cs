@@ -1,33 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using TMPro;
 
 public class StartupManager : MonoBehaviour
 {
-    public GameObject UICanvas;
+    public PlayableDirector IntroDirector;
+    public PlayableDirector NameDirector;
+    public TMP_InputField NameField;
 
-    bool begin = false;
+    bool nameDirectorFinished = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(FadeTitle());
+        NameDirector.stopped += OnPlayableDirectorStopped;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && !begin)
+        if (Input.anyKeyDown)
         {
-            begin = true;
-            FindObjectOfType<FadeCamera>().FadeOut(1);
+            if (IntroDirector.state == PlayState.Playing)
+            {
+                IntroDirector.time = IntroDirector.duration;
+            }
+            else
+            {
+                if (NameDirector.state == PlayState.Playing)
+                {
+                    NameDirector.time = NameDirector.duration;
+                }
+                else if (!nameDirectorFinished)
+                {
+                    NameDirector.Play();
+                }
+            }
         }
     }
 
-    IEnumerator FadeTitle()
+    void OnPlayableDirectorStopped(PlayableDirector director)
     {
-        yield return new WaitForSeconds(10);
-        UICanvas.SetActive(true);
+        nameDirectorFinished = true;
+    }
+
+    public void NameFieldEndEdit()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            PlayerPrefs.SetString("name", NameField.text);
+            FindObjectOfType<FadeCamera>().FadeOut("Diner");
+        }
     }
 }
