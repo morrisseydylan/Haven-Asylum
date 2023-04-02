@@ -1,0 +1,4 @@
+Rebecca: I mean, I don't have anything better to do. Would you come with us?
+[CHOICE 1] I'm thinking...
+[CHOICE 2] Nope.
+[CHOICE 3] Let's do it!

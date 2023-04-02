@@ -1,0 +1,4 @@
+Nick: You're not actually considering this, are you?
+[CHOICE 1] I'm thinking...
+[CHOICE 2] Nope.
+[CHOICE 3] Let's do it!

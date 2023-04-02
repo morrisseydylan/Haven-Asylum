@@ -1,0 +1,4 @@
+Andrea: Yeesh, this is so sketch. What do you think?
+[CHOICE 1] I'm thinking...
+[CHOICE 2] Nope.
+[CHOICE 3] Let's do it!

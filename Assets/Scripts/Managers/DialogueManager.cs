@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 using TMPro;
 
@@ -10,13 +11,15 @@ public class DialogueManager : MonoBehaviour
 {
     public GameObject DialogueUI;
     public GameObject Player;
+    public Image NPCBox;
+    public Sprite[] NPCBoxSprites;
 
     DialogueTrigger trigger;
     PlayerInteraction interaction;
     bool interactionWasEnabled = false;
     TMP_Text[] textBoxes; // index 0 = NPC dialogue text box; indices 1-3 = choice text boxes
     GameObject[] partyMemberCameras = new GameObject[5]; // indices 0-3 respectively: Keith, Rebecca, Andrea, Nick; index 4 = player POV
-    int currentCameraIndex = 2;
+    int currentCameraIndex;
     string playerName;
     bool isChoice = false;
     bool isPrinting = false;
@@ -63,7 +66,7 @@ public class DialogueManager : MonoBehaviour
     {
         this.trigger = trigger;
         string delimiter = String.Concat(Environment.NewLine, Environment.NewLine); // Text file will be split by double newlines
-        string[] lines = trigger.DialogueScript.text.Split(delimiter, StringSplitOptions.RemoveEmptyEntries); // Split text file and remove empties
+        string[] lines = trigger.GetDialogue().Split(delimiter, StringSplitOptions.RemoveEmptyEntries); // Split text file and remove empties
         for (int i = 0; i < lines.Length; i++)
         {
             lines[i] = lines[i].Replace("%PLAYER%", playerName);
@@ -149,11 +152,13 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 partyMember = -1;
+                NPCBox.sprite = NPCBoxSprites[4];
             }
             if (partyMember != -1)
             {
                 partyMemberCameras[currentCameraIndex].SetActive(false);
                 partyMemberCameras[partyMember].SetActive(true);
+                NPCBox.sprite = NPCBoxSprites[partyMember];
                 currentCameraIndex = partyMember;
             }
 

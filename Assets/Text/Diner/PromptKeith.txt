@@ -1,0 +1,4 @@
+Keith: Yo, %PLAYER%! You'd be down, right?
+[CHOICE 1] I'm thinking...
+[CHOICE 2] Nope.
+[CHOICE 3] Let's do it!

@@ -1,3 +1,0 @@
-It's Keith's newspaper. Do you want to add it to your inventory?
-[CHOICE 1] No
-[CHOICE 2] Yes

@@ -7,30 +7,36 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Header("DialogueTrigger")]
     public bool StartDialogueOnAwake = false;
-    public TextAsset DialogueScript;
+    public TextAsset[] DialogueScript;
     public CinemachineVirtualCamera[] ObjectsToActivate;
 
+    protected DialogueManager manager;
+    protected int index = 0;
     GameObject ui;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<DialogueManager>();
         if (StartDialogueOnAwake)
         {
-            StartDialogue();
+            StartDialogue(null);
         }
-    }
-
-    public void StartDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(this);
     }
 
     public void StartDialogue(GameObject uiToDisable)
     {
         ui = uiToDisable;
-        ui.SetActive(false);
-        FindObjectOfType<DialogueManager>().StartDialogue(this);
+        if (ui != null)
+        {
+            ui.SetActive(false);
+        }
+        manager.StartDialogue(this);
+    }
+
+    public string GetDialogue()
+    {
+        return DialogueScript[index].text;
     }
 
     public virtual void EndDialogue(int choice)
@@ -40,5 +46,9 @@ public class DialogueTrigger : MonoBehaviour
             ui.SetActive(true);
         }
         ui = null;
+        if (++index < DialogueScript.Length)
+        {
+            manager.StartDialogue(this);
+        }
     }
 }

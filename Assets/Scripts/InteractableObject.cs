@@ -11,6 +11,12 @@ public class InteractableObject : DialogueTrigger
 
     public override void EndDialogue(int choice)
     {
+        if (++index < DialogueScript.Length)
+        {
+            manager.StartDialogue(this);
+            return;
+        }
+
         if (InventoryItemID != -1)
         {
             if (choice == 2) // Yes

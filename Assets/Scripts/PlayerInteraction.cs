@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
                     {
                         movingToObject = true;
                     }
-                    properties.StartDialogue();
+                    properties.StartDialogue(null);
                 }
             }
             else
