@@ -1,0 +1,7 @@
+Keith: You find anything yet? Just need something to knock away that debris.
+[CHOICE 1] Nothing yet.
+[INVENTORY 1] [CHOICE 2] Yeah, I found this over there.
+
+[RESPONSE 1] Keith: Alright, just keep looking around.
+
+[RESPONSE 2] Keith: Perfect! Hey, guys come look at what %PLAYER% found!

@@ -4,50 +4,56 @@ Andrea: ...
 
 Andrea: ...I studied so hard for it...
 
-Keith: Nah, I had Dr. Pucket last year. His exams were always whack. He was always going off on tangents during lectures...
+Keith: Nah, I had Dr. Pucket last year. His exams were always hard for nothing. Maybe if he didn't talk about how close he was to actually getting the answer instead of actually getting the answer...
 
-Rebecca: Yeah, don't beat yourself up over it. Besides, it's spring break now! We don't have to think about any of that stuff for a while.
+Rebecca: Yeah, don't beat yourself up over it. This one was hard for me too, I only got a 92! Besides, it's spring break now! We don't have to think about any of that stuff for a while.
 
-Andrea: I suppose you're right.
+Andrea: Easy for you to say, you can buy those Cool Notes with literally all the answers. You wouldn't even let me borrow it to look at it! 
 
 Keith: Nick, are you really still studying!? What do you even need to prepare for?
 
 Nick: Oh, uh... you know... I just don't want to get behind on anything.
 
 Rebecca: Oh, come on! %PLAYER%, you're also doing engineering, right? Do you really need to study over spring break?
-[CHOICE 1] Nick can do what he thinks is best!
-[CHOICE 2] It is a bit much.
+[CHOICE 1] It is a bit much.
+[CHOICE 2] I mean... if he needs it.
 
-[RESPONSE 1] Keith: Whatever. Besides, I know something really fun we could do later.
+[RESPONSE 1] Keith: Exactly! You should give it a rest. Besides, I know something really fun we could do later.
 
-[RESPONSE 2] Keith: Exactly! You should give it a rest. Besides, I know something really fun we could do later.
+[RESPONSE 2] Keith: Whatever. Besides, I know something really fun we could do later.
 
-Rebecca: Wait, you're not actually thinking about going to that asylum, are you?
+Rebecca: Are you talking about whatever you have on that newspaper?
 
-Keith: You know it's getting demolished soon. It'll be our last chance to explore it!
+Andrea: I need a refill...
 
-Andrea: What are you guys talking about?
+Keith: Haven Asylum. I've always had my eye on it ever since we learned about it from that one kid's presentation years ago. You know it's getting demolished soon? I've been wanting to check it out and it'll be our last chance to explore it!
 
-Keith: I heard there's this old building on the outskirts of town that's getting demolished this week. I thought it'd be cool to see what it's like to explore it!
+Andrea: Wait hold on what are you guys talking about sorry I wasn't paying attention...
+
+Keith: I heard there's this old building on the outskirts of town that's getting demolished this week. I thought it'd be cool to see what's actually inside. 
 
 [OBJECT 1]
 
-Andrea: ...
+Andrea: "In 1982, amidst accusations of suspicious activity and illegal and dangerous experimentation being carried out by asylum staff and benefactors, the asylum was forced to close its doors."  You wanna go here? You sure you're not trying to go to be admitted?
 
-Andrea: "In 1982, amidst accusations of suspicious activity and illegal and dangerous experimentation being carried out by asylum staff and benefactors, the asylum was forced to close its doors."
+Rebecca: I mean it does sound interesting. I think it'd be fun and it'd help you forget about that exam, Andrea! I don't know, what do you think, %PLAYER%?
+[CHOICE 1] It sounds dangerous.
+[CHOICE 2] It's just an old building.
 
-Andrea: ...
+Nick: There's no way the building could be safe. When they do stuff like this they have construction scraps everywhere! Nails, hammers, falling chandeliers!
 
-Andrea: Nope. No way.
+Andrea: Falling chandeliers? This isn't some broadway production...
 
-Rebecca: I am a little curious... Aren't you?
-[CHOICE 1] It's just an old building.
-[CHOICE 2] It sounds dangerous.
+Nick: Stuff falls all the time! I don't know, I'm really not feeling this idea.
 
-Nick: There's no way the building could be safe. We could get hurt.
+Keith: Hey, I get it. There could be dangerous police tape that might kill us!
 
-Keith: Sure, but we could also find something really cool! And it would be good for you to get out of your shell.
+Nick: I get it you don't care about not getting hurt, sent to the hospital, or even worse. 
 
-Nick: Can we go back to eating, please?
+Rebecca: That's why we are careful when we're there... duh! You think we're gonna walk in with sledgehammers and just start knocking the place around?
 
-Keith: Just saying, it could be fun to poke around...
+Nick: It's not even that. What if someone sees us breaking in and calls the police on us? 
+
+Keith: Just saying, it could be fun to poke around. We don't even have to be there that long. 
+
+Nick: Can you just give me a second, I wanna finish this problem.

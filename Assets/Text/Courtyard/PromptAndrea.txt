@@ -1,0 +1,7 @@
+Andrea: I'm looking! I'm looking! Oh... hey, %PLAYER%. Any luck?
+[CHOICE 1] Nothing yet. 
+[INVENTORY 1] [CHOICE 2] Yeah, I found this over there.
+
+[RESPONSE 1] Andrea: Damn... I'll keep looking in this bush.
+
+[RESPONSE 2] Andrea: You did not just find that...

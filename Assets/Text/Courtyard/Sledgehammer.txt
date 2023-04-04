@@ -1,0 +1,3 @@
+Um... This might work. Do you want to pick up the sledgehammer?
+[CHOICE 1] No
+[CHOICE 2] Yes

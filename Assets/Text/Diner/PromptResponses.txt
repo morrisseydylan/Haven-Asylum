@@ -1,15 +1,15 @@
-[RESPONSE 2] Keith: Really!? Well, I don't want to go alone...
+[RESPONSE 2] Keith: Are you for real? I don't wanna go with just Rebecca.
 
-[RESPONSE 2] Andrea: How about we just have a board game night tomorrow? Or literally any normal activity?
+[RESPONSE 2] Andrea: How about we just have a board game night tomorrow? Or literally anything else?
 
 [RESPONSE 2] Nick: I'm down for that.
 
-[RESPONSE 2] Rebecca: Haha, looks like your proposal didn't go as planned.
+[RESPONSE 2] Rebecca: Ooh I have a ton of board games we can play! Let's do my place.
 
 [RESPONSE 3] Keith: Let's gooo! I knew you'd be down!
 
-[RESPONSE 3] Nick: Really!? Fine, if you feel it's safe, I'll go.
+[RESPONSE 3] Nick: Really!? Did you just ignore everything I said!
 
 [RESPONSE 3] Rebecca: Tomorrow night it is!
 
-[RESPONSE 3] Andrea: I guess we're really doing this...
+[RESPONSE 3] Andrea: I'm not doing anything so I guess I'll tag along.

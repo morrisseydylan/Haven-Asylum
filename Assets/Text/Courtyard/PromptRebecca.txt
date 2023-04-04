@@ -1,0 +1,7 @@
+Rebecca: Do you think we'll even find anything? Not saying we won't but...
+[CHOICE 1] Not sure, but it doesn't hurt to try. 
+[INVENTORY 1] [CHOICE 2] Yeah, I found this over there.
+
+[RESPONSE 1] Rebecca: True. 
+
+[RESPONSE 2] Rebecca: No way! Keith, look at this!

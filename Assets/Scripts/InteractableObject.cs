@@ -17,6 +17,8 @@ public class InteractableObject : DialogueTrigger
             return;
         }
 
+        index = 0;
+
         if (InventoryItemID != -1)
         {
             if (choice == 2) // Yes

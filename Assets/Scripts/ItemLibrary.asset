@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ItemLibrary
   m_EditorClassIdentifier: 
   itemLibrary:
-  - id: 0
-    name: Newspaper
+  - name: Newspaper
     flavorText: The newspaper that Keith brought to the diner. It has details about
       the asylum.
-    model: {fileID: 6644832827710870683, guid: d08d88f978e6d904fa53856c57c6fee4, type: 3}
+    model: {fileID: 4404436566061228667, guid: c100a377cb13b984fb733c44bbf59175, type: 3}
+  - name: Sledgehammer
+    flavorText: A sledgehammer... have you even used one before?
+    model: {fileID: 2832687121937550856, guid: 524066aeacc82c74fa23eba487b7eaf7, type: 3}

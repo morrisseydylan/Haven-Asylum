@@ -28,8 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     readonly Queue<string> dialogueQueue = new();
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -211,8 +210,28 @@ public class DialogueManager : MonoBehaviour
         {
             for (int i = 1; i < lines.Length; i++)
             {
-                DialogueUI.transform.GetChild(i).gameObject.SetActive(true);
-                textBoxes[i].text = lines[i].Remove(0, 11); // Remove "[CHOICE x] " from the string
+                // Some choices should only be shown if the player has a certain item in their inventory
+                bool showThisChoice = true;
+                if (lines[i].Contains("[INVENTORY"))
+                {
+                    string itemIDString = lines[i].Substring(11, 2);
+                    if (itemIDString.Contains(']')) // Double-digit IDs were substringed correctly, but single-digit IDs will have the leftover ']' character
+                    {
+                        itemIDString = itemIDString.Remove(1);
+                    }
+                    int itemID = int.Parse(itemIDString);
+                    if (!DataManager.Instance.InventoryItems.Contains(itemID))
+                    {
+                        showThisChoice = false;
+                    }
+                    lines[i] = lines[i].Remove(0, lines[i].IndexOf(']') + 1); // Remove "[INVENTORY x] " from the string
+                }
+
+                if (showThisChoice)
+                {
+                    DialogueUI.transform.GetChild(i).gameObject.SetActive(true);
+                    textBoxes[i].text = lines[i].Remove(0, 11); // Remove "[CHOICE x] " from the string
+                }
             }
         }
     }

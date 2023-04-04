@@ -1,0 +1,47 @@
+Andrea: Is anyone else really cold right now?
+
+Nick: It's literally almost 80 degrees out right now... 
+
+Rebecca: It's probably coming from the asylum. There's tons of rumors about crazy people being locked alone for years without any sunlight. Sounds like a normal Saturday night for you Keith, right?
+
+Everyone except Keith laughs.
+
+Keith: Cut that shit out that's not funny! I do stuff all the time like go to that one bar and -
+
+Rebecca: I don't care. It was just a joke, Keith. Lighten up a little bit. Plus look around, isn't this place cool %PLAYER%?
+[CHOICE 1] It really feels like we're in some horror movie.
+[CHOICE 2] I don't care.
+
+[RESPONSE 1] Rebecca: I know right! I keep looking around to make sure...
+
+[RESPONSE 1] Keith: BOO!
+
+[RESPONSE 1] Rebecca: STOP!
+
+[RESPONSE 2] Everyone except Rebecca laughs.
+
+[RESPONSE 2] Rebecca: So, you have jokes now huh? 
+
+[RESPONSE 2] Nick: I mean, he did kinda get you.
+
+Rebecca: Whatever. Let's just do something. Is the front door still unlocked? I mean it's not like they're still seeing patients. Too bad for Keith, could've been a fresh start for him.
+
+Keith: Why you picking on me like that now? You're gonna act differently when it gets scary in there and you want me to protect you!
+
+Rebecca: Protect me from what? Some construction tape?
+
+Andrea: Or from Nick's calc exam grade...
+
+Everyone except Nick laughs.
+
+Nick: I'm just not going to say anything anymore...
+
+Keith: Looks like they still have it running on its own for the construction that's happening. I'm surprised they haven't taken it out yet. 
+
+Rebecca: I don't think that's even still supposed to be up there. 
+
+Keith: Who knows? OSHA might not have even heard this was happening and nobody has bothered to do it yet? 
+
+Keith: The front door looks like it's open though. Blocked by a bunch of debris... The only other way in is the scaffolding but I don't want anyone actually getting hurt. 
+
+Rebecca: Look around and see if we can find anything to knock it out.

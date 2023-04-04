@@ -20,10 +20,10 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, 100))
         {
-            if (hit.collider.gameObject.TryGetComponent(out InteractableObject properties))
+            InteractableObject properties = hit.collider.gameObject.GetComponentInParent<InteractableObject>();
+            if (properties != null)
             {
-
-                GameObject hitObj = hit.collider.gameObject;
+                GameObject hitObj = properties.gameObject;
                 if (hitObj != interaction)
                 {
                     SetOutline(false);

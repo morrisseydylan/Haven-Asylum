@@ -1,0 +1,7 @@
+Nick: So, we're gonna find what? A wrecking ball and just knock through the door? I just wanna go home.
+[CHOICE 1] Up to you. We're already here though.
+[INVENTORY 1] [CHOICE 2] This could work.
+
+[RESPONSE 1] Nick: Very helpful, thanks...
+
+[RESPONSE 2] Nick: No! No way we're using that!
