@@ -73,8 +73,8 @@ MonoBehaviour:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 1
   m_InfiniteClipPostExtrapolation: 1
-  m_InfiniteClipOffsetPosition: {x: -17.44, y: 0.4, z: 0.06}
-  m_InfiniteClipOffsetEulerAngles: {x: 7.500004, y: 89.862, z: 0.00000043057037}
+  m_InfiniteClipOffsetPosition: {x: -20, y: 1.2, z: -8}
+  m_InfiniteClipOffsetEulerAngles: {x: 10, y: 90, z: 0}
   m_InfiniteClipTimeOffset: 0
   m_InfiniteClipRemoveOffset: 0
   m_InfiniteClipApplyFootIK: 1
