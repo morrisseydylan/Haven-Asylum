@@ -1,0 +1,45 @@
+Keith: This place is insane...
+
+Rebecca: Well I mean, it is an asylum. 
+
+Keith: ...
+
+Andrea: ...
+[CHOICE 1] ...
+
+Andrea: I think I just saw a ghost... 
+
+Nick: Ghosts aren't real. Stop trying to scare us.
+
+Rebecca: This is so much better than sitting at home and playing games, isn't it Andrea? 
+
+Andrea: Is this fun to you? 
+
+Rebecca: Yes? 
+
+Nick: Can you guys stop, you're really annoying me. 
+
+Andrea: %PLAYER%, can you tell them to stop?
+[CHOICE 1] Can you guys lay off, it's not that crazy to be scared.
+[CHOICE 2] It's not that deep. There's nobody here.
+
+[RESPONSE 1] Andrea: Thank you! Finally someone sane. 
+
+[RESPONSE 2] [OBJECT 1]
+
+Rebecca: What was that?!.. Well, as leader of the group I think we should go to the Warden's office. There's always stuff about the old patients in there.
+
+Keith: No, I'm kinda hungry and wanna see the mess hall.
+
+Andrea: The showers are right over there. It's not too far then we can leave?
+[CHOICE 1] Go to the Warden's Office. 
+[CHOICE 2] Go to the mess hall.
+[CHOICE 3] Go to the showers.
+
+[RESPONSE 1] [BOOL WentToOffice]
+
+[RESPONSE 2] [BOOL WentToCafeteria]
+
+[RESPONSE 3] [BOOL WentToShowers]
+
+[SCRIPT 1]

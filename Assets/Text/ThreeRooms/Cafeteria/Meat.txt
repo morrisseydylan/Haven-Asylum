@@ -1,0 +1,3 @@
+It appears to be some form of sustenance. Pick it up?
+[CHOICE 1] No
+[CHOICE 2] Yes

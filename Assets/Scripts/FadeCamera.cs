@@ -15,6 +15,7 @@ public class FadeCamera : MonoBehaviour
     float alpha;
     float time;
     string sceneToLoad;
+    bool interactionWasEnabled = false;
 
     [RuntimeInitializeOnLoadMethod]
     public void FadeIn()
@@ -23,10 +24,35 @@ public class FadeCamera : MonoBehaviour
         done = false;
         alpha = 1;
         time = 0;
+
+        if (interactionWasEnabled)
+        {
+            FindObjectOfType<PlayerInteraction>().Enable();
+        }
     }
 
     public void FadeOut(string sceneToLoad)
     {
+        if (GameObject.Find("CM pov") != null)
+        {
+            if (GameObject.Find("CM pov").activeSelf)
+            {
+                if (FindObjectOfType<PlayerInteraction>().enabled)
+                {
+                    interactionWasEnabled = true;
+                    FindObjectOfType<PlayerInteraction>().Disable();
+                }
+                else
+                {
+                    interactionWasEnabled = false;
+                }
+            }
+            else
+            {
+                interactionWasEnabled = false;
+            }
+        }
+
         reverse = true;
         done = false;
         alpha = 0;
@@ -74,7 +100,10 @@ public class FadeCamera : MonoBehaviour
             if (alpha >= 1)
             {
                 done = true;
-                SceneManager.LoadScene(sceneToLoad);
+                if (sceneToLoad != null)
+                {
+                    SceneManager.LoadScene(sceneToLoad);
+                }
             }
         }
     }

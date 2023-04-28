@@ -13,6 +13,6 @@ public class ItemLibrary : ScriptableObject
     {
         public string name;
         public string flavorText;
-        public GameObject model;
+        public Texture renderTexture;
     }
 }

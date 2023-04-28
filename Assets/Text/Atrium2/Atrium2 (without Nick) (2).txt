@@ -1,0 +1,13 @@
+Andrea: NICK OH MY GOD! Is he dead?!
+[CHOICE 1] I- I think so.
+[CHOICE 2] *Remain silent*
+
+[RESPONSE 1] Andrea: He can't... We shouldn't have come here in the first place. I can't believe – wait, is that a note?
+
+[RESPONSE 2] Andrea: %PLAYER%, HELLO!? Oh shit, is that a note?
+
+Andrea: It says... "Still need one". What?!
+
+Andrea: Holy shit they might be going for Rebecca and Keith... we have to get them now.
+
+[SCRIPT 1]

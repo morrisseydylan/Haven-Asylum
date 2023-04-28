@@ -1,0 +1,45 @@
+Andrea: Well Keith looks like we found your protein supplements.
+
+Keith: Or whatever Rebecca cooks.
+
+Rebecca: Wait, why does it look like it was just made? Do you think the construction workers left it during lunch?
+
+Andrea: I don't think they'd be eating where they're demolishing.
+
+Nick: I don't know, I see a lot of videos online of construction workers doing anything on site.
+
+Keith: Yeah... I don't know, it's hard to say. Would they even eat shit like this?
+
+Keith: %PLAYER% I dare you to try it.
+
+Nick: NASTY!
+
+Andrea: Keith, why don't you eat it if that's the first thing that came to mind?
+
+Keith: I don't wanna. Plus I asked %PLAYER% to eat it. It's not like I'm forcing anything.
+[CHOICE 1] Eat cafeteria meat.
+[CHOICE 2] Refuse to eat.
+
+[RESPONSE 1] Rebecca: EWWW!
+
+[RESPONSE 1] Andrea: You did not just...
+
+[RESPONSE 1] Nick: I think I'M gonna puke.
+
+[RESPONSE 1] Keith: Wait, save some for me!
+
+[RESPONSE 2] Keith: Fine, more for me.
+
+[RESPONSE 2] Andrea: So nasty...
+
+Andrea: Wait, look over there...
+
+Andrea points to a fly infested, dead animal ridden, mystery meat.
+
+Rebecca: I'm gonna puke!
+
+Keith: WHAT THE F— *Pukes*
+
+Nick: And you guys wanted me to stay for this...
+
+[SCRIPT 1]

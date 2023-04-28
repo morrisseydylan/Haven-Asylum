@@ -1,0 +1,7 @@
+Rebecca: What do you want to do?
+[CHOICE 1] Go to the mess hall.
+[CHOICE 2] Go to the showers.
+
+[RESPONSE 1] [SCRIPT 1]
+
+[RESPONSE 2] [SCRIPT 2]

@@ -8,7 +8,10 @@ public class DialogueTrigger : MonoBehaviour
     [Header("DialogueTrigger")]
     public bool StartDialogueOnAwake = false;
     public TextAsset[] DialogueScript;
+    public int ChoiceForProgression = -1;
     public CinemachineVirtualCamera[] ObjectsToActivate;
+    public GameObject[] ScriptsToRun;
+    public string NextScene;
 
     protected DialogueManager manager;
     protected int index = 0;
@@ -26,6 +29,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public void StartDialogue(GameObject uiToDisable)
     {
+        if (DialogueScript.Length == 0)
+        {
+            return;
+        }
+
         ui = uiToDisable;
         if (ui != null)
         {
@@ -48,7 +56,23 @@ public class DialogueTrigger : MonoBehaviour
         ui = null;
         if (++index < DialogueScript.Length)
         {
-            manager.StartDialogue(this);
+            if (ChoiceForProgression == choice || ChoiceForProgression == -1)
+            {
+                manager.StartDialogue(this);
+            }
+            return;
+        }
+
+        index = 0;
+
+        foreach (CinemachineVirtualCamera cm in ObjectsToActivate)
+        {
+            cm.gameObject.SetActive(false);
+        }
+
+        if (NextScene != "")
+        {
+            FindObjectOfType<FadeCamera>().FadeOut(NextScene);
         }
     }
 }

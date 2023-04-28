@@ -1,0 +1,82 @@
+Rebecca: I think so? Did I just hit my head or something?
+
+Andrea: You were FLOATING! IN. THE. AIR.
+
+Keith: Andrea I need help over here!
+[CHOICE 1] Wait, Andrea, you said she was floating?
+[CHOICE 2] Andrea, we need help!
+
+[RESPONSE 1] Andrea: Literally behind you guys! Oh my God Rebecca what the–
+
+[RESPONSE 1] Keith: Are you crazy Andrea? What are you on about?
+
+[RESPONSE 2] Andrea: Did you not just hear me?! What the fuck!?
+
+[RESPONSE 2] Keith: We heard you, but did you hear what you just said?
+
+Andrea: I know what I saw! That's nothing to– I don't know what– oh my God...
+
+Keith: Andrea, what is going on!?
+
+Andrea: Nick got killed.
+
+Rebecca: Oh my–
+
+Andrea: There was a note that said "Still need one". 
+
+Rebecca: Like, one of us?
+
+Andrea: Yes. And looks like you might be on their list, so we need to GO!
+
+Keith: Wait, you're saying they're after Rebecca?
+
+Andrea: I don't know but her floating in the air made me think about it.
+
+Keith: Did the shower fog mess with your head or something?
+
+Andrea: I don't care. What I do know is my friend is dead and one of us might be next. 
+
+Keith: %PLAYER% did you see any of it?
+[CHOICE 1] Yeah, I saw it.
+[CHOICE 2] No, but – I don't know... what if it did happen?
+[CHOICE 3] Maybe you're just panicking because of Nick.
+
+[RESPONSE 1] Andrea: Thank you!
+
+[RESPONSE 1] Keith: Were you even looking? I thought you were helping with this?
+
+[RESPONSE 2] Andrea: It happened. Can you please cut the shit?
+
+[RESPONSE 3] Andrea: I KNOW WHAT I SAW! Sorry.. I just– we need to get out of here. 
+
+Rebecca: Can we not argue when someone is looking to KILL US?! I don't care if I was floating, I just want to get out now!
+
+Keith: Okay.. OKAY! What about this guy?
+
+Old man: It might not be too *coughs* late. Your pretty friend right there might already be here. 
+
+Keith: Stop with the cryptic shit. We're leaving, it seems like this dude calls this place home.
+
+Old man: It's not just home... It's a refuge. A haven. You all must be saved.
+
+Rebecca: Let's go.
+
+Old man: But where would you go? You saw the fate of your dear friend Nick.
+
+Andrea: Don't say his name! 
+
+Old man: But it's his. Either way, the chapel is the only place you'll find any hope.
+
+Keith: We're not looking for a sermon. Why are we even still talking to this guy!?
+
+Rebecca: I hate to say it but he has a point. Whatever is looking for us probably knows where we are.
+
+Old man: Mmhmm. If he wanted you dead you would have been.
+
+Keith: Please ignore this dude. 
+
+Old man: Or what? You'll kill me? Good luck trying.
+
+Rebecca: It's the best shot we have, Keith. I mean... Nick... oh God.
+
+Keith: Fine... FINE.

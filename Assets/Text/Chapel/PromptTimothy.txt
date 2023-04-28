@@ -1,0 +1,14 @@
+Timothy: Ah, so what choice have you decided to make?
+[CHOICE 1] Rebecca
+[CHOICE 2] Keith
+[CHOICE 3] Andrea
+[CHOICE 4] %PLAYER%
+[CHOICE 5] I need to think.
+
+[RESPONSE 1] [SCRIPT 1]
+
+[RESPONSE 2] [SCRIPT 2]
+
+[RESPONSE 3] [SCRIPT 3]
+
+[RESPONSE 4] [SCRIPT 4]

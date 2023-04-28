@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,16 @@ using UnityEngine;
 public class InteractableObject : DialogueTrigger
 {
     [Header("InteractableObject")]
-    public bool CanMoveTo = false;
+    public int Area = 0;
+    public bool DisableWhileInArea = false;
+    public InteractableObject[] ObjectsInArea;
+    public GameObject PlayerLocation;
     public int InventoryItemID = -1; // -1 = not an item; 0+ = an item that can be added to the player's inventory
-    public string[] ScenesToLoad;
+    public GameObject InventoryItemMesh;
+    public bool Proceed = true;
 
     public override void EndDialogue(int choice)
     {
-        if (++index < DialogueScript.Length)
-        {
-            manager.StartDialogue(this);
-            return;
-        }
-
-        index = 0;
-
         if (InventoryItemID != -1)
         {
             if (choice == 2) // Yes
@@ -28,16 +25,52 @@ public class InteractableObject : DialogueTrigger
                 {
                     audio.Play();
                 }
-                Destroy(gameObject);
+                if (InventoryItemMesh == null)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+
+                    InventoryItemMesh.SetActive(false);
+                }
+            }
+            if (choice == 1)
+            {
+                return;
             }
         }
 
-        if (ScenesToLoad.Length > 0)
+        if (choice == 5)
         {
-            if (ScenesToLoad[choice - 1] != "")
+            return;
+        }
+
+        if (!Proceed)
+        {
+            index++;
+            return;
+        }
+
+        if (++index < DialogueScript.Length)
+        {
+            if (ChoiceForProgression == choice || ChoiceForProgression == -1)
             {
-                FindObjectOfType<FadeCamera>().FadeOut(ScenesToLoad[choice - 1]);
+                manager.StartDialogue(this);
             }
+            return;
+        }
+
+        index = 0;
+
+        foreach (CinemachineVirtualCamera cm in ObjectsToActivate)
+        {
+            cm.gameObject.SetActive(false);
+        }
+
+        if (NextScene != "")
+        {
+            FindObjectOfType<FadeCamera>().FadeOut(NextScene);
         }
     }
 }

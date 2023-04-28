@@ -13,7 +13,34 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Courtyard.unity
-    guid: 05e9ae25cf23c9d44beb23babe5c615b
+    guid: 19d15ccd49b64c8418cbfe0673eb442c
+  - enabled: 1
+    path: Assets/Scenes/Atrium.unity
+    guid: a48be25e2761acc41a2df3e8bd29e590
+  - enabled: 1
+    path: Assets/Scenes/Showers.unity
+    guid: 9f68a97ea9a6f77479da7e2e832ff8d2
+  - enabled: 1
+    path: Assets/Scenes/Cafeteria.unity
+    guid: 95825fc269b66bd4abec787a00c085eb
+  - enabled: 1
+    path: Assets/Scenes/Office.unity
+    guid: 3930620de4eeb6a4a989178a5cfd60dc
+  - enabled: 1
+    path: Assets/Scenes/Atrium2WithNick.unity
+    guid: 3c24b575633121f49aa98081f5f76950
+  - enabled: 1
+    path: Assets/Scenes/Atrium2WithoutNick.unity
+    guid: 3526d09bb570ebe4bb91a39a791172d3
+  - enabled: 1
+    path: Assets/Scenes/LabHallWithAndrea.unity
+    guid: 82889e17b0767ad4489f4858c7108b84
+  - enabled: 1
+    path: Assets/Scenes/LabHallWithoutAndrea.unity
+    guid: 3a459a744c946304792214ec9ba8668b
+  - enabled: 1
+    path: Assets/Scenes/Chapel.unity
+    guid: b426fe8604388ff49a6b03be9f82792e
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 1237d3dc717d2fc43965aec5ce91998b

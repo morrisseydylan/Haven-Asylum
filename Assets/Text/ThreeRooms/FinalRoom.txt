@@ -1,0 +1,23 @@
+[OBJECT 1]
+
+Andrea: Between this fog, mystery meat, and that stupid pen and all the other weird shit we've seen, I'm done. 
+
+Nick: I'm with Andrea, this is officially too much for me. I'm out of here too.
+
+Rebecca: If something is actually going on we need to stick together. You'll just leave Keith and I to die and who wants that?
+[CHOICE 1] I'm with Andrea, I'm kinda over this...
+[CHOICE 2] You might just be overreacting. This place is empty; it was just falling debris.
+
+[RESPONSE 1] Keith: Fine, your loss then. Rebecca and I are gonna keep checking this place out, we'll meet you guys back at the golf cart.
+
+[RESPONSE 1] Andrea: Ok... please be careful, will you? I really don't like this place...
+
+[RESPONSE 1] Rebecca: We'll be fine.
+
+[RESPONSE 1] [BOOL WentWithAndrea]
+
+[RESPONSE 2] Andrea: I'm not changing my mind, I'm out of here. I'll meet you guys back at the golf cart.
+
+[RESPONSE 2] Rebecca: We'll be fine. %PLAYER%, let's go! I think I saw a cool-looking room with a stage on the way here.
+
+[SCRIPT 1]

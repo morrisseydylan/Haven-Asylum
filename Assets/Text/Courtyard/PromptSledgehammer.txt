@@ -1,0 +1,33 @@
+Keith: Nice job %PLAYER%. Didn't think we'd actually find anything. 
+
+Nick: Was kinda hoping we wouldn't. 
+
+Andrea: You're finding every reason to remind us that you don't wanna be here.
+
+Nick: It's not like I'm saying this in a Denny's or something! This is a crazy asylum where people were killed! Yes, killed! I know there isn't anyone there to murder us or whatever but there are police that do checks out here, contractors, and... I don't know coyotes! 
+
+Rebecca: If you were so afraid of the coyotes why didn't you tell us to begin with? I have coyote repellent at home I think, but I might almost be out -
+
+Nick: NOT THE POINT! 
+
+Andrea: Ok, we hear you but we don't really have the same concerns. We even told you on the way here that it's completely cleared out. I mean you could've just not come. 
+
+Nick: Do you just want me to leave right now because I will. 
+
+Keith: Not with the golf cart. We still need a way back.
+
+Nick: I'll walk and order a ride or something. At this point it seems like you all just want me to leave either way.
+[CHOICE 1] Convince Nick to join.
+[CHOICE 2] Let Nick leave.
+
+[RESPONSE 1] Nick: FINE! Fine... but if there's something weird in there I'm out.
+
+[RESPONSE 2] Nick: Alright well I'm leaving. There's no cell service so just run if one of the inmates is still up there.
+
+[RESPONSE 2] Rebecca: We'll be sure to give them your address so you can get the tour from home!
+
+[RESPONSE 2] Nick: BYE!
+
+[RESPONSE 2] [BOOL NickLeft]
+
+[SCRIPT 1]

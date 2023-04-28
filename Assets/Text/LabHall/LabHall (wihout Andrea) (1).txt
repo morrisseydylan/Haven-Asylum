@@ -1,0 +1,5 @@
+Keith: What? Who is this?... 
+
+Keith: He's not moving! %PLAYER% we have to help him!
+
+[SCRIPT 1]

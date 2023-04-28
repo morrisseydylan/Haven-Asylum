@@ -73,15 +73,23 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueUI.SetActive(true);
-        if (interaction.enabled)
+        if (partyMemberCameras[4].activeSelf)
         {
-            interactionWasEnabled = true;
-            interaction.enabled = false;
+            if (interaction.enabled)
+            {
+                interactionWasEnabled = true;
+                interaction.Disable();
+            }
+            else
+            {
+                interactionWasEnabled = false;
+            }
         }
         else
         {
             interactionWasEnabled = false;
         }
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(PopDialogueQueue());
     }
 
@@ -95,8 +103,29 @@ public class DialogueManager : MonoBehaviour
             string line = lines[0];
 
             // SKIP dialogue if it corresponds to a choice the player didn't make
-            if ((line.Contains("[RESPONSE 1]") && choice != 1) || (line.Contains("[RESPONSE 2]") && choice != 2) || (line.Contains("[RESPONSE 3]") && choice != 3))
+            if ((line.Contains("[RESPONSE 1]") && choice != 1) || (line.Contains("[RESPONSE 2]") && choice != 2) || (line.Contains("[RESPONSE 3]") && choice != 3)
+                || (line.Contains("[RESPONSE 4]") && choice != 4) || (line.Contains("[RESPONSE 5]") && choice != 5))
             {
+                StartCoroutine(PopDialogueQueue());
+                yield break;
+            }
+
+            // SKIP line if it runs another script
+            if (line.Contains("[SCRIPT"))
+            {
+                trigger.ScriptsToRun[int.Parse(line.Substring(line.IndexOf("[SCRIPT") + 8, 1)) - 1].SetActive(true);
+
+                StartCoroutine(PopDialogueQueue());
+                yield break;
+            }
+
+            // SKIP line if it determines a story choice
+            if (line.Contains("[BOOL"))
+            {
+                string key = line.Substring(line.IndexOf("[BOOL") + 6);
+                key = key.Substring(0, key.Length - 1);
+                DataManager.SetStoryChoice(key, true);
+
                 StartCoroutine(PopDialogueQueue());
                 yield break;
             }
@@ -104,14 +133,20 @@ public class DialogueManager : MonoBehaviour
             // SKIP line if it is simply a command to activate an object in the scene
             if (line.Contains("[OBJECT"))
             {
-                CinemachineVirtualCamera obj = trigger.ObjectsToActivate[int.Parse(line.Substring(8, 1)) - 1]; // Determine which CM to activate
+                CinemachineVirtualCamera obj = trigger.ObjectsToActivate[int.Parse(line.Substring(line.IndexOf("[OBJECT") + 8, 1)) - 1]; // Determine which CM to activate
                 obj.gameObject.SetActive(true); // Activate the CM
                 obj.LookAt.gameObject.SetActive(true); // Activate the object you are looking at
                 DialogueUI.SetActive(false);
                 yield return new WaitForSeconds(3);
                 DialogueUI.SetActive(true);
+
                 StartCoroutine(PopDialogueQueue());
                 yield break;
+            }
+
+            if (line == "Andrea and Nick laugh." && DataManager.GetStoryChoice("NickLeft"))
+            {
+                lines[0] = "Andrea laughs.";
             }
 
             // Determine if the dialogue is a choice prompt
@@ -146,6 +181,12 @@ public class DialogueManager : MonoBehaviour
             }
             else if (line.Contains("Nick:"))
             {
+                // SKIP if the player didn't convince Nick to leave
+                if (DataManager.GetStoryChoice("NickLeft"))
+                {
+                    StartCoroutine(PopDialogueQueue());
+                    yield break;
+                }
                 partyMember = 3;
             }
             else
@@ -171,7 +212,7 @@ public class DialogueManager : MonoBehaviour
             partyMemberCameras[4].SetActive(true);
             if (interactionWasEnabled)
             {
-                interaction.enabled = true;
+                interaction.Enable();
             }
             trigger.EndDialogue(choice);
         }

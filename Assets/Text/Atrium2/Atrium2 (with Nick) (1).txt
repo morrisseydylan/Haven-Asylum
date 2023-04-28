@@ -1,0 +1,11 @@
+Nick: Thank God, thank God, thank God!
+
+Andrea: I don't know why we didn't leave after that fog. I'm pretty sure I have asthma too and-
+
+Nick: No you don't. Please do not stand here and lie to %PLAYER% and I like that.
+
+Andrea: I-
+
+Nick: Let's get going.
+
+[SCRIPT 1]

@@ -6,6 +6,8 @@ public class PauseManager : MonoBehaviour
 {
     public GameObject PauseUI;
 
+    CursorLockMode previousMode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class PauseManager : MonoBehaviour
             {
                 Time.timeScale = 0;
                 PauseUI.SetActive(true);
+                previousMode = Cursor.lockState;
+                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
@@ -33,6 +37,7 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1;
         PauseUI.SetActive(false);
+        Cursor.lockState = previousMode;
     }
 
     public void Options()

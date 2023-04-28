@@ -1,0 +1,79 @@
+Why hello. What is your name?
+[CHOICE 1] %PLAYER%, what's yours?
+[CHOICE 2] Remain silent.
+
+[RESPONSE 1] Timothy: Nice to meet you. I am Father Timothy. Have you been enjoying your stay?
+
+[RESPONSE 2] Timothy: Not much of a talker? I am Father Timothy.
+
+Keith: Why are you talking to him? Who are these people?!?! My friend is dead and you have the —
+
+Timothy: I see you've been to my chapel. I do apologize you had to see that unfortunate soul. Taken too soon but she lacked trust. 
+
+Rebecca: Trust in what...
+
+Timothy: I thought you of all people would understand. 
+
+Rebecca: Do you even know me?
+
+Timothy: Not in body, but in soul, yes. I do know you.
+
+Andrea: Guys, we need to leave.
+
+Timothy: And go where? I mean the roof is just behind me, but in truth there's no easy way to leave this place.
+
+Andrea: What are you talking about?
+
+Timothy: Seems that the answers are staring you in the face.
+
+All: ...
+
+Timothy: There's a reason people don't visit here. Even the construction crew anymore. 
+
+Keith: This place is set to be knocked down soon. Whatever the fuck is happening here is gonna be gone.
+
+Timothy: That's where we differ?
+
+Keith: Really? Only there?
+
+Timothy: These grounds are sacred. I think you all should understand that well by now. For years, travelers stop by for a taste of what life was like here. This place is a magnet for those who seek it.
+
+Keith: You calling us crazy?! Look at you!
+
+Timothy: None of that. Now, I understand you all do want to leave, and I see grace in your hearts, but grace is not enough these days. The construction ploy was a way for the state to keep people away, and the demolition was supposed to keep people away for good. 
+
+Keith: You're saying, this place is still running?...
+
+Timothy: Yes! And quite smoothly as well. Like I said, we always get new patients coming through so we always have business! I will let you leave.
+
+Andrea: Thank God!
+
+Timothy: Don't thank Him yet. Like I said, this place is nothing without the occupants. Take a look around at the Ascended. 
+
+[OBJECT 1]
+
+Timothy: You could be one! But if you wish to leave, I cannot have you leave without an act of devotion. 
+
+Andrea: Like what...
+
+Timothy: A sacrifice of one of you. You may pick.
+
+Rebecca: No way I'm agreeing to that shit! Oh God we all are going to die here.
+
+Timothy: Don't think about it as dying but more so coming with us.
+
+Keith: What the fuck are we going to do?
+
+Rebecca: How do we even pick?
+
+Andrea: Are you seriously thinking about this?! 
+
+Rebecca: What other choice do we have? He threw Keith to the ground without moving, who knows what he could do to us?
+
+Timothy: You will choose.
+
+[OBJECT 2]
+
+Timothy: You may think it over, but you may not leave without making a decision. You may even choose yourself if you see fit.
+
+[SCRIPT 5]

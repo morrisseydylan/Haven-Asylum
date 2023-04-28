@@ -1,0 +1,11 @@
+Andrea: Honestly thank you for saying you'd leave with me. I don't know, I've always had a fear of these places.
+[CHOICE 1] Why's that?
+[CHOICE 2] Yeah, let's just get out of here.
+
+[RESPONSE 1] Andrea: I don't know. I've always had my shit I deal with and these places are magnets for anybody that isn't "normal" or whatever. Just some family stuff I guess.
+
+[RESPONSE 1] Andrea: Anyway, let's get going.
+
+[RESPONSE 2] Andrea: Erm, yeah let's do that.
+
+[SCRIPT 1]

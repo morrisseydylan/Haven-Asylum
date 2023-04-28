@@ -1,0 +1,9 @@
+Rebecca: Are you already done looking around? I haven't even looked through the medical records yet?!
+[CHOICE 1] Yeah, let's do something else.
+[CHOICE 2] Actually there was something I wanted to check real quick.
+
+[RESPONSE 1] Rebecca: Really? It's alright they're probably not even that interesting.
+
+[RESPONSE 1] [SCRIPT 1]
+
+[RESPONSE 2] Rebecca: Perfect! Let's start with the R's.

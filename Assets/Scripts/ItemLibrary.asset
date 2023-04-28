@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemLibrary:
   - name: Newspaper
-    flavorText: The newspaper that Keith brought to the diner. It has details about
-      the asylum.
-    model: {fileID: 4404436566061228667, guid: c100a377cb13b984fb733c44bbf59175, type: 3}
+    flavorText: Keith's newspaper that he shared with you at the diner. It's a little
+      grimy, but it has details about the asylum.
+    renderTexture: {fileID: 8400000, guid: 165c493619cd6f148abe0d67e1bedcb1, type: 2}
   - name: Sledgehammer
     flavorText: A sledgehammer... have you even used one before?
-    model: {fileID: 2832687121937550856, guid: 524066aeacc82c74fa23eba487b7eaf7, type: 3}
+    renderTexture: {fileID: 8400000, guid: 7251a5420fda1114aaa6e5344a49574c, type: 2}
+  - name: Cafeteria meat
+    flavorText: The Sunday Special.
+    renderTexture: {fileID: 8400000, guid: 4d2dd43dbdff83b42b40168e0020435c, type: 2}

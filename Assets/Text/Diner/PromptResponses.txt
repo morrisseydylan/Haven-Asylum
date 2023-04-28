@@ -6,6 +6,8 @@
 
 [RESPONSE 2] Rebecca: Ooh I have a ton of board games we can play! Let's do my place.
 
+[RESPONSE 2] [SCRIPT 1]
+
 [RESPONSE 3] Keith: Let's gooo! I knew you'd be down!
 
 [RESPONSE 3] Nick: Really!? Did you just ignore everything I said!
@@ -13,3 +15,7 @@
 [RESPONSE 3] Rebecca: Tomorrow night it is!
 
 [RESPONSE 3] Andrea: I'm not doing anything so I guess I'll tag along.
+
+[RESPONSE 3] [BOOL WentToAsylum]
+
+[RESPONSE 3] [SCRIPT 1]

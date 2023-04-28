@@ -1,0 +1,19 @@
+Andrea: NICK!
+[CHOICE 1] NICK!
+[CHOICE 2] WE HAVE TO GO!
+
+Andrea: We have to help him!
+[CHOICE 1] We have to get Keith and Rebecca!
+[CHOICE 2] *Remain silent*
+
+[RESPONSE 1] Andrea: I.... uh... yeah, let's go!
+
+[RESPONSE 2] Andrea: I mean... we have to go tell Rebecca and Keith! Shit! SHIT!
+
+Andrea: Wait what's that?
+
+Andrea: There's a note here... "Still need one". What?!
+
+Andrea: Holy shit they might be going for Rebecca and Keith... we have to get them now.
+
+[SCRIPT 1]
